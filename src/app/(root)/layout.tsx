@@ -1,8 +1,9 @@
-import "./globals.css";
+import "../globals.css";
 
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { getServerSession } from "next-auth";
+import Header from "@/components/Header";
 import Provider from "@/provider";
 
 const poppins = Poppins<"--font-sans">({
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     "Online Collaboration Workspace for Youtube creators and their teams",
 };
 
-export default async function RootLayout({
+export default async function Layout({
   children,
 }: {
   children: React.ReactNode;
@@ -30,6 +31,7 @@ export default async function RootLayout({
         className={`min-h-screen h-full w-full flex flex-col scrollbar scrollbar-track-white/5 scrollbar-thumb-prime font-sans bg-black text-white ${poppins.variable}`}
       >
         <Provider session={session}>
+          <Header />
           {children}
         </Provider>
       </body>

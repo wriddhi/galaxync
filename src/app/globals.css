@@ -3,25 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --prime: #ff0000;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.raised {
+  box-shadow: 1px 1px 0 0 black, 2px 2px 0 0 black, 3px 3px 0 0 black,
+    4px 4px 0 0 black, 5px 5px 0 0 black, 6px 6px 0 0 var(--prime);
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.raised:hover {
+  translate: 5px 5px;
+  box-shadow: none;
+}
+
+.raised:focus-within {
+  translate: 5px 5px;
+  box-shadow: none;
+  outline: 1px solid var(--prime);
 }
